@@ -6,7 +6,7 @@ const instadp = new InstaDP();
 
 describe('InstaDP', () => {
   describe('_fetchStoryMediaFromHTML', () => {
-    test('should throw a TypeError on invalid html', () => {
+    test('should throw a TypeError on invalid html input', () => {
       expect(() => { instadp._fetchStoryMediaFromHTML(null); }).toThrow(TypeError);
       expect(() => { instadp._fetchStoryMediaFromHTML(null); }).toThrow(/Invalid HTML/);
     });
