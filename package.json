@@ -1,0 +1,27 @@
+{
+  "name": "instadp",
+  "version": "1.0.0",
+  "description": "A collection of helper functions to grab results from instadp.",
+  "main": "lib/index.js",
+  "keywords": [
+    "instagram",
+    "instadp",
+    "api",
+    "web",
+    "ig",
+    "story",
+    "photo"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Cameron Hudson <cam@chudson.io>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
