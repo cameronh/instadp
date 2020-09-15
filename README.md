@@ -9,6 +9,7 @@
   </a>
 </div>
 
+
 ```js
 const instadp = require('instadp');
 
@@ -17,7 +18,7 @@ const instadp = require('instadp');
 })();
 //=> ['some_photo.jpg', 'some_video.mp4']
 ```
-https://travis-ci.org/cameronh/instadp.svg?branch=master
+
 ## Note
 
 This library is currently under active development - you may only retrieve user stories.
