@@ -14,8 +14,8 @@
 const InstaDP = require('instadp');
 
 (async() => {
-  const instadp = new InstaDP();
-  const stories = await instadp.getStories('username');
+  const insta = new InstaDP();
+  const stories = await insta.getStories('username');
 })();
 //=> ['some_photo.jpg', 'some_video.mp4']
 ```
