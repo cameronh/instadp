@@ -1,11 +1,6 @@
 language: node_js
 node_js:
   - "node"
-
-script: echo "Running tests against $(node -v)..."
-
-jobs:
-  include:
-    - stage: Produce Coverage
-    node_js: node
-    script: jest --coverage && coveralls < coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+install: npm install
+script: npm test
+after_success: npm run coverage

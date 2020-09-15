@@ -13,7 +13,8 @@
     "photo"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "author": "Cameron Hudson <cam@chudson.io>",
   "license": "MIT",
