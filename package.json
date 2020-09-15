@@ -1,6 +1,6 @@
 {
   "name": "instadp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of helper functions to grab results from instadp.",
   "main": "lib/index.js",
   "keywords": [

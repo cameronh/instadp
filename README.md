@@ -20,9 +20,16 @@ const InstaDP = require('instadp');
 //=> ['some_photo.jpg', 'some_video.mp4']
 ```
 
-## Note
+## Features
 
-This library is currently under active development - you may only retrieve user stories.
+This library is currently under active development.
+
+✅ <b>Full Size Profile Pictures</b>
+
+✅ <b>Stories (Images, Videos)</b>
+
+⛔️ Reels
+
 
 ## Installation
 `npm install instadp`
