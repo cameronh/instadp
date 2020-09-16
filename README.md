@@ -1,5 +1,5 @@
 <h1 align="center">instadp</h1>
-<h5 align="center">Fast, flexible & lean implementation to grab profile photos, stories, and reels from instagram <i>anonymously</i> (via instadp).</h5>
+<h5 align="center">Fast, flexible & lean implementation to grab profile photos, stories, and reels from instagram without needing an account (via instadp).</h5>
 <div align="center">
   <a href="http://travis-ci.org/cameronh/instadp">
     <img src="https://travis-ci.org/cameronh/instadp.svg?branch=master" alt="Travis CI" />
