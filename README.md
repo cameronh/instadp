@@ -17,7 +17,7 @@ const InstaDP = require('instadp');
   const insta = new InstaDP();
   const stories = await insta.getStories('username');
 })();
-//=> ['some_photo.jpg', 'some_video.mp4']
+//stories => ['some_photo.jpg', 'some_video.mp4']
 ```
 
 ## Features
