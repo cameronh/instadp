@@ -41,6 +41,17 @@ describe('InstaDP', () => {
       expect(stories[1]).toStrictEqual('video.mp4');
     });
 
+    test('should return a message stating no stories on the profile when given an empty list', async () => {
+      const mockFetcher = async (_url) => {
+        return { text: async () => `<ul class="stories-list"></ul>` }
+      }
+
+      const instadp = new InstaDP(mockFetcher);
+      const stories = await instadp.getStories('foo');
+
+      expect(stories).toStrictEqual('No stories posted on the profile');
+    });
+
     test('should throw an error for invalid html input', async () => {
       const mockFetcherNull = async (_url) => {
         return { text: async () => null }
