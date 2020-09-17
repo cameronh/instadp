@@ -1,6 +1,6 @@
 {
   "name": "instadp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A collection of helper functions to grab results from instadp.",
   "main": "lib/index.js",
   "keywords": [
@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "test": "jest",
-    "coverage": "jest --coverage && coveralls < coverage/lcov.info"
+    "coverage": "jest --coverage && coveralls < coverage/lcov.info",
+    "docs": "jsdoc2md lib/*.js > doc/api.md"
   },
   "author": "Cameron Hudson <cam@chudson.io>",
   "license": "MIT",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "jsdoc-to-markdown": "^6.0.1"
   }
 }
