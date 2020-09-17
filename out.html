@@ -1,0 +1,707 @@
+
+> instadp@1.0.4 test /Users/cam/Projects/instadp
+> jest
+
+  console.log
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<title>Download Instagram Reel - Instagram Reel Viewer</title>
+    	<meta name="description" content="View anyone's reels for free in full quality. Instagram reels viewer viewer and downloader lets you view any Instagram profile reels in original size.">
+    	<meta name="keywords" content="instadp, insta dp, igdp, profile picture viewer, instagram display picture, full size, instagram, display, picture, view, profile, picture, instagram profile picture viewer" />
+    	
+    		<base href="https://www.instadp.com/">
+    
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta property="og:image" content="https://instadp.com/images/facebook-share.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/appletouchicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon16x16.png">
+    <link rel="mask-icon" href="images/safaripinnedtab.svg" color="#FFFFFF">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="msapplication-navbutton-color" content="#FFFFFF">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF">
+    <meta name="apple-itunes-app" content="app-id=651309421">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css?v=11">
+    <script src="scripts/jquery.js"></script>
+    
+    	<script type="application/ld+json">
+    	{
+    	  "@context": "http://schema.org",
+    	  "@type": "BreadcrumbList",
+    	  "itemListElement": [{
+    	    "@type": "ListItem",
+    	    "position": 1,
+    	    "item": {
+    	      "@id": "https://www.instadp.com/",
+    	      "name": "InstaDP"
+    	    }
+    	  },{
+    	    "@type": "ListItem",
+    	    "position": 2,
+    	    "item": {
+    	      "@id": "https://www.instadp.com/reel",
+    	      "name": "Story"
+    	    }
+    	  },{
+    	    "@type": "ListItem",
+    	    "position": 3,
+    	    "item": {
+    	      "@id": "https://www.instadp.com/stories/",
+    	      "name": ""
+    	    }
+    	  }]
+    	}
+    	</script>
+    </head>
+    
+    
+    <body class="darkmode">
+    
+    <!-- Header -->
+    <header class="header home ">
+    	<div class="centered">
+    		<a href="" class="back-btn"></a>
+    		<a href="/" class="home-btn"></a>
+    		<div class="search-btn"><i class="icon"></i>Search username</div>
+    		<div class="menu-btn"></div>
+    	</div>
+    </header>
+    
+    <!-- Search modal 
+    	1. Show promoted add class "promoted" to "search-modal"
+    	2. If has history add class "has-history" to "search-modal"
+    	3. If loading add class "loading" to "search-modal"
+    	4. If error add class "error" to "search-modal"
+    	5. If no results add class "no-results" to "search-modal"
+    	6. If has results add class "has-results" to "search-modal"
+    -->
+    <div class="search-modal  ">
+    	<div class="search-bar">
+    		<div class="centered">
+    			<div class="back-btn"></div>
+    			<input class="search-input" type="text" placeholder="Search username" autofocus>
+    			<div class="clear-btn"></div>
+    			<div class="search-btn"></div>
+    		</div>
+    	</div>
+    	<div class="search-results">
+    		<div class="centered">
+    
+    
+    			<!-- Results Options
+    				1. Add url to image to "avatar" div
+    				2. If no name available add "no-name" to "account"
+    				3. If verified add "verified to "account"
+    			 -->
+    
+    
+    			<!-- Search -->
+    			<ul class="search-promo-list" style="display: none;">
+    				<li class="item" style="display: block;">
+    					<a class="item-link" target="_blank" href="https://www.followmeterapp.com">
+    						<div class="logo" style="background-image: url('https://www.instadp.com/images/apps/followmeter.png');"></div>
+    						<span class="name">Profile Stalkers</span>
+    						<span class="desc">See who is stalking you on Instagram</span>
+    					</a>
+    					<a class="app-open" target="_blank" href="https://www.followmeterapp.com"><i></i>GET</a>
+    				</li>
+    			</ul>
+    
+    			<!-- Search Loading -->
+    			<div class="search-loading">
+    				<i class="loader rotate"></i>
+    			</div>
+    
+    			<!-- Search Error -->
+    			<div class="search-error">
+    				<div class="error-icon"></div>
+    				<span class="text">Server could not be reached,<br>try refreshing page in a minute</span>
+    				<span class="options"><a href="#" onclick="refreshSearch(); return false;">Refresh</a> | <a href="contact" target="_blank">Report</a></span>
+    			</div>
+    
+    			<!-- Search No Results -->
+    			<div class="search-no-results">
+    				No results found.
+    			</div>
+    
+    			<!-- Results -->
+    			<ul class="results-search-list">
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    								<li class="account"  style="display: none;">
+    					<a class="account-link" href="">
+    						<div class="avatar"></div>
+    						<span class="username">username</span>
+    						<span class="name">name</span>
+    					</a>
+    				</li>
+    							</ul>
+    
+    			<!-- Promoted -->
+    			<ul class="results-promoted-list">
+    							</ul>
+    
+    			<!-- History -->
+    			<ul class="results-history-list">
+    			</ul>
+    
+    		</div>
+    	</div>
+    </div>
+    
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/cookie.js"></script>
+    <script src="scripts/constants.js"></script>
+    <script type="text/javascript">
+    
+    function _getHistory() {
+    	
+    	var history = _getCookie('history');
+    	if(history != undefined){
+    		var cookies = decodeURIComponent(_getCookie('history'));
+    
+    		if(cookies != 'undefined' && cookies.length > 0){
+    
+    			if(cookies.isJson()){
+    
+    				cookies = JSON.parse(cookies);
+    
+    				var list = document.querySelector('.search-modal .search-results .centered .results-history-list');
+    				list.innerHTML = '';
+    
+    				if(cookies.length > 0){
+    
+    					document.querySelector('.search-modal').classList.add('has-history');
+    
+    					for(var i = 0; i < cookies.length; i++){
+    
+    						var cookie = cookies[i];
+    
+    						if(cookie != null && cookie.id != null && cookie.username != null && cookie.picture != null){
+    
+    							var li = document.createElement('li');
+    							li.classList.add('account');
+    							li.setAttribute('data-id', cookie.id);
+    							var a = document.createElement('a');
+    							a.classList.add('account-link');
+    							a.setAttribute('href', 'user/'+cookie.username);
+    							var div = document.createElement('div');
+    							div.classList.add('avatar');
+    							div.setAttribute('style', 'background-image: url(\''+cookie.picture+'\');');
+    							a.appendChild(div);
+    							var span = document.createElement('span');
+    							span.classList.add('username');
+    							span.innerText = cookie.username;
+    							if(cookie.verified != null && cookie.verified === true){
+    								var i2 = document.createElement('i');
+    								i2.classList.add('verified');
+    								span.appendChild(i2);
+    								li.classList.add('verified');
+    							}
+    							a.appendChild(span);
+    							if(cookie.fullname != null && cookie.fullname.length > 0){
+    								var span1 = document.createElement('span');
+    								span1.classList.add('name');
+    								span1.innerText = cookie.fullname.replace(/\+/g, ' ');
+    								a.appendChild(span1);
+    							}
+    							li.appendChild(a);
+    							var div1 = document.createElement('div');
+    							div1.classList.add('remove-btn');
+    							div1.onclick = function(e){
+    								e.preventDefault();
+    
+    								_removeCookie(this.parentNode.getAttribute('data-id'),'history');
+    								_getHistory();
+    							};
+    							li.appendChild(div1);
+    							list.appendChild(li);
+    						}
+    					}
+    
+    				} else {
+    
+    					document.querySelector('.search-modal').classList.remove('has-history');
+    				}
+    			}
+    		}
+    	}
+    }
+    
+    _getHistory();
+    
+    function delaySearch(s){
+    
+    	setTimeout(function(){
+    
+    		var input = document.querySelector('.search-modal .search-bar .centered .search-input');
+    		if(input.value.trim() == s && input.value.trim().length > 0){
+    
+    			if(input.getAttribute('data-active') != s){
+    				input.setAttribute('data-active', s);
+    
+    				ga('send', 'pageview', '/search');
+    
+    				$.get('https://www.instagram.com/web/search/topsearch/?context=blended&query='+s+'&include_reel=false&count=50', function(r){
+    
+    					document.querySelector('.search-modal').classList.remove('loading');
+    
+    					if(r.status == 'ok'){
+    
+    						if(r.users.length > 0){
+    
+    							document.querySelector('.search-modal').classList.add('has-results');
+    
+    						} else {
+    
+    							document.querySelector('.search-modal').classList.add('no-results');
+    						}
+    
+    						var list = document.querySelectorAll('.search-modal .search-results .centered .results-search-list .account');
+    
+    						for(var i = 0; i < list.length; i++){
+    
+    							var li = list[i];
+    
+    							var item = r.users[i].user;
+    
+    							if(item === undefined){
+    
+    								li.style.display = 'none';
+    								li.classList.remove('verified');
+    								li.querySelector('a').href = 'stories';
+    								//li.querySelector('a').on('click', null);
+    
+    								var div = li.querySelector('a .avatar');
+    								div.style.backgroundImage = 'none';
+    
+    								var span1 = li.querySelector('a .username');
+    								span1.innerHTML = 'username';
+    
+    								var span2 = li.querySelector('a .name');
+    								span2.innerHTML = 'subname';
+    
+    								continue;
+    							}
+    
+    							li.style.display = 'block';
+    
+    							if(li.getAttribute('data-type') == 'stories'){
+    
+    								li.querySelector('a').href = 'stories/'+item.username;
+    
+    							} else {
+    
+    								li.querySelector('a').href = 'profile/'+item.username;
+    							}
+    
+    							var div = li.querySelector('a .avatar');
+    							div.style.backgroundImage = 'url(\''+item.profile_pic_url+'\')';
+    
+    							var span1 = li.querySelector('a .username');
+    							span1.innerHTML = item.username;
+    							if(item.is_verified != null && item.is_verified === true){
+    								var el = document.createElement('i');
+    								el.classList.add('verified');
+    								span1.appendChild(el);
+    								li.classList.add('verified');
+    							}
+    
+    							var span2 = li.querySelector('a .name');
+    							span2.innerHTML = '';
+    							if(item.full_name != null && item.full_name.length > 0){
+    								span2.innerHTML = item.full_name;
+    							}
+    						}
+    
+    						ga('send', 'pageview', '/search/results');
+    
+    						return;
+    					}
+    
+    					document.querySelector('.search-modal').classList.remove('loading');
+    					document.querySelector('.search-modal').classList.add('error');
+    
+    					ga('send', 'pageview', '/search/error-2');
+    
+    
+    				}).fail(function(xhr, status, error) {
+    
+    					document.querySelector('.search-modal').classList.remove('loading');
+    					document.querySelector('.search-modal').classList.add('error');
+    
+    					ga('send', 'pageview', '/search/error-1');
+    				});
+    			}
+    		}
+    	}, 3000);
+    }
+    
+    function refreshSearch(){
+    	document.querySelector('.search-modal').classList.remove('no-results');
+    	document.querySelector('.search-modal').classList.remove('has-results');
+    	document.querySelector('.search-modal').classList.remove('error');
+    
+    	var val = document.querySelector('.search-modal .search-bar .centered .search-input').value.trim();
+    	if(val.length > 0){
+    
+    		document.querySelector('.search-modal').classList.add('loading');
+    		document.querySelector('.search-modal').classList.remove('has-history');
+    
+    		delaySearch(val);
+    
+    	} else {
+    
+    		document.querySelector('.search-modal').classList.remove('loading');
+    		document.querySelector('.search-modal').classList.add('has-history');
+    	}
+    }
+    
+    document.querySelector('.header .centered .search-btn').onclick = function(){
+    	document.querySelector('body').classList.add('search-toggled');
+    	document.querySelector('.search-modal').style.display = 'block';
+    
+    	var list = document.querySelector('.search-modal .search-results .centered .results-promoted-list');
+    	if(!list.hasAttribute('data')){
+    		$.post('track',{'i':{'s':0,'id':''}});
+    		list.setAttribute('data', true);
+    	}
+    
+    	document.querySelector('.search-modal .search-bar .centered .search-input').focus();
+    
+    	ga('send', 'pageview', '/search');
+    };
+    
+    document.querySelector('.search-modal .back-btn').onclick = function(){
+    	document.querySelector('body').classList.remove('search-toggled');
+    	document.querySelector('.search-modal').style.display = 'none';
+    
+    		ga('send', 'pageview', '/reel');
+    	};
+    
+    document.querySelector('.search-modal .search-bar .centered .search-input').onkeyup = function(e){
+    
+    	e.preventDefault();
+    
+    	if(e.keyCode === 13){
+        	refreshSearch();
+        	return false;
+    	}
+    
+    	var val = this.value;
+    	if(val.length > 1){
+    		document.querySelector('.search-modal .search-bar .search-btn').classList.add('show');
+    	} else {
+    		document.querySelector('.search-modal .search-bar .search-btn').classList.remove('show');
+    	}
+    };
+    
+    document.querySelector('.search-modal .search-bar .search-btn').onclick = function(e){
+    	e.preventDefault();
+    	
+    	refreshSearch();
+    };
+    </script>
+    
+    
+    
+    <!-- Content -->
+    <article class="content ">
+    
+    			<!-- AD -->
+    	<div style="float: left; width: 100%; margin-bottom: 10px; text-align: center; ">
+    		<!-- Responsive Ad -->
+    		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    		<!-- Instadp [Responsive] -->
+    		<ins class="adsbygoogle"
+    		     style="display:block"
+    		     data-ad-client="ca-pub-3398778452569287"
+    		     data-ad-slot="4953131942"
+    		     data-ad-format="auto"
+    		     data-full-width-responsive="true"></ins>
+    		<script>
+    		     (adsbygoogle = window.adsbygoogle || []).push({});
+    		</script>
+    		<!-- /Responsive Ad -->
+    	</div>
+    		
+    
+    	
+    
+    	<div class="centered">
+    
+    		<section class="result-account" style="display: none;"> <!-- verified has-cta -->
+    			<a href="#" class="avatar" onclick="return false;"></a>
+    			
+    			<div class="info-wrapper">
+    				<span class="username"><span></span><i class="verified"></i></span>
+    				<div class="call-to-action"></div>
+    				<div class="followers-number">- Followers</div>
+    			</div>
+    		</section>
+    
+    		<ul class="result-tab-selector" style="display: none;">
+    			<li class="profile"><a href=""><i class="icon"></i><span class="text">Profile</span></a></li>
+    			<li class="fullsize"><a href=""><i class="icon"></i><span class="text">Full Size</span></a></li>
+    			<li class="stories"><a href=""><i class="icon"></i><span class="text">Stories</span></a></li>
+    			<li class="reels"><a href=""><i class="icon"></i><span class="text">Reels</span></a></li>
+    		</ul>
+    
+    		<section class="result-content">
+    
+    			<!-- Result Loading -->
+    			<div class="result-loading">
+    				<i class="loader rotate"></i>
+    			</div>
+    
+    			<!-- Reel Here -->
+    			<div class="reel-wrapper" style="display: none;">
+    				<div class="reel-post">
+    				</div>
+    				<a target="_blank" class="download-btn" href="">Download<i></i></a>
+    			</div>
+    			<!-- /Reel Here -->
+    
+    									<!-- AD -->
+    			<div style="float: left; width: 100%; margin-bottom: 10px; text-align: center; ">
+    				<!-- Responsive Ad -->
+    				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    				<!-- Instadp [Responsive] -->
+    				<ins class="adsbygoogle"
+    				     style="display:block"
+    				     data-ad-client="ca-pub-3398778452569287"
+    				     data-ad-slot="4953131942"
+    				     data-ad-format="auto"
+    				     data-full-width-responsive="true"></ins>
+    				<script>
+    				     (adsbygoogle = window.adsbygoogle || []).push({});
+    				</script>
+    				<!-- /Responsive Ad -->
+    			</div>
+    						
+    
+    			
+    		</section>
+    
+    
+    		<div style="float: left; width: 100%; margin-bottom: 20px;">
+    
+    			<h4 style="margin-bottom: 5px;">Why Download Instagram Reels?</h4>
+    			<p>With our website, you can download your Reel video and share it on other social media. You can also download other amazing Reels from other creators to save them for offline viewing.</p>
+    
+    		</div>
+    
+    	</div>
+    </article>
+    
+    
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+    
+    	<a href="" class="logo">Instadp</a>
+    
+    	<span class="sb-sec-title">Menu</span>
+    	<ul class="sb-nav-list">
+    		<li><a href="/"><i class="home"></i>Home</a>
+    		<li><a href="articles"><i class="tips"></i>Tips &amp; Tricks</a>
+    		<li><a href="contact"><i class="contact"></i>Contact</a>
+    	</ul>
+    
+    	<div>
+    		<span class="sb-sec-title">Fun Apps</span>
+    		<ul class="sb-app-list">
+    			<li><a target="_blank" href="https://followmeterapp.com"><i style="background-image: url(images/apps/followmeter.png);"></i>Track Unfollowers</a></li>
+    			<li><a target="_blank" href="https://qeekapp.com"><i style="background-image: url(images/apps/qeek.png);"></i>Zoom Profile Pictures</a></li>
+    			<li><a target="_blank" href="https://bestgridapp.com"><i style="background-image: url(images/apps/best-grid.png);"></i>Best Grid for Instagram</a></li>
+    			<li><a target="_blank" href="https://tip18app.com"><i style="background-image: url(images/apps/tip18.png);"></i>Tip18 Tip Calculator</a></li>
+    		</ul>
+    	</div>
+    
+    	<div class="darkmode-options">
+    		<div class="text">Dark Mode</div>
+    		<div class="button">
+    			<label class="switch">
+    				<input type="checkbox" checked>
+    				<span class="slider round"></span>
+    			</label>
+    		</div>
+    	</div>
+    
+    </div>
+    
+    <div class="prevent-click"></div>
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+    	<div class="centered">
+    		<div class="logo-links">
+    			<div class="links">
+    				<a class="main-link" href="/">Instadp</a>
+    				<span class="sub-links"><a href="contact">Contact</a> | <a href="privacy-policy">Privacy Policy</a> | <a href="sitemap.xml">Sitemap</a></span>
+    			</div>
+    		</div>
+    		<div class="links-disclaimer">
+    			<div class="links"><a href="https://instadp.com/instagram-dp">Instagram DP</a> | <a href="https://instadp.com/instadp">InstaDP</a> | <a href="https://instadp.com/insta-dp-viewer">Insta dp viewer</a> | <a href="https://instadp.com/download-instagram-stories">Download Instagram stories</a> | <a href="https://instadp.com/instagram-story-viewer">Instagram story viewer</a> | <a href="https://instadp.com/instagram-reel-viewer">Instagram reel viewer</a> | <a href="https://instadp.com/download-instagram-reels">Download Instagram reels</a></div>
+    			<div class="disclaimer">Instadp is not affiliated with Instagram&trade;<br>We do not host any Instagram content.</div>
+    		</div>
+    	</div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script type="text/javascript">
+    	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    	ga('create', 'UA-45158477-5', 'auto');
+    
+    	var trackOutLink = function(url) {
+    		ga('send', 'event', 'outbound', 'click', url, {
+    		'transport': 'beacon',
+    		'hitCallback': function(){document.location = url;}
+    	   });
+    	}
+    </script>
+    
+    <!-- GDPR -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="scripts/gdpr.js"></script>
+    <script type="text/javascript">
+    $.cookieMessage({
+        'mainMessage': 'This website uses cookies. By using this website you consent to our use of these cookies.',
+        'acceptButton': 'OK',
+        'fontSize': '16px',
+        'backgroundColor': '#222',
+    });
+    </script>
+    
+    <!-- Scripts -->
+    <script src="scripts/scripts.js?v=2"></script>
+    
+    
+    <!-- Page scripts -->
+    <script type="text/javascript">
+    	ga('send', 'pageview', '/reel');
+    </script>
+    
+    
+    <!-- Page Sripts -->
+    <script type="text/javascript">
+    	var links = document.querySelectorAll('.content .centered .result-tab-selector li a');
+    	for(var i = 0; i < links.length; i++){
+    		links[i].onclick = function(e){
+    			e.preventDefault();
+    
+    			if(this.parentElement.classList.contains('selected')){
+    				return;
+    			}
+    
+    			var div = document.querySelector('.result-content');
+    			div.querySelector('.result-loading').style.display = 'block';
+    
+    			if(div.querySelector('.result-error') != null){
+    				div.querySelector('.result-error').style.display = 'none';
+    			}
+    
+    			if(div.querySelector('.story-highlights') != null){
+    				div.querySelector('.story-highlights').style.display = 'none';
+    			}
+    
+    			if(div.querySelector('.result-private') != null){
+    				div.querySelector('.result-private').style.display = 'none';
+    			}
+    
+    			if(div.querySelector('.highlight-selected') != null){
+    				div.querySelector('.highlight-selected').style.display = 'none';
+    			}
+    
+    			if(div.querySelector('.stories-list') != null){
+    				div.querySelector('.stories-list').style.display = 'none';
+    			}
+    
+    			window.location = this.href;
+    		};
+    	}
+    </script>
+    
+    <script src="scripts/reel.js?v=5"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	get('CFNr1WWnuNM');
+    });
+    </script>
+    
+    </body>
+    </html>
+
+      at lib/index.js:22:15
+          at async Promise.all (index 0)
+

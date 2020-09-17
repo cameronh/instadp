@@ -22,14 +22,11 @@ const InstaDP = require('instadp');
 
 ## Features
 
-This library is currently under active development.
-
 ✅ <b>Full Size Profile Pictures</b>
 
 ✅ <b>Stories (Images, Videos)</b>
 
-⛔️ Reels
-
+✅ <b>Reels</b>
 
 ## Installation
 `npm install instadp`
