@@ -28,6 +28,8 @@ const InstaDP = require('instadp');
 
 ✅ <b>Reels</b>
 
+⛔️ Direct Downloads
+
 ## Installation
 `npm install instadp`
 
