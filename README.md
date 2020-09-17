@@ -37,4 +37,4 @@ const InstaDP = require('instadp');
 `npm test`
 
 ## API
-[Documentation](api.md)
+[Documentation](doc/api.md)
