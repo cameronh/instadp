@@ -5,7 +5,7 @@
     <img src="https://travis-ci.org/cameronh/instadp.svg?branch=master" alt="Travis CI" />
   </a>
   <a href='https://coveralls.io/github/cameronh/instadp?branch=master'>
-    <img src='https://coveralls.io/repos/github/cameronh/instadp/badge.svg?branch=master' alt='Coverage Status' />
+    <img src='https://coveralls.io/repos/github/cameronh/instadp/badge.svg?branch=master&ts=09-15-2020' alt='Coverage Status' />
   </a>
 </div>
 
