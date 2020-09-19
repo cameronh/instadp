@@ -2,7 +2,6 @@ const InstaDP = require('../lib');
 const fs = require('fs');
 const path = require('path');
 const storiesJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/stories.json'), 'utf8'));
-const storiesErrorJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/stories_error.json'), 'utf8'));
 const profilePictureHtml = fs.readFileSync(path.join(__dirname, 'html/profile_picture.html'), 'utf8');
 const reelsHtml = fs.readFileSync(path.join(__dirname, 'html/reels.html'), 'utf8');
 const reelsJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/reels.json'), 'utf8'));
@@ -49,9 +48,9 @@ describe('InstaDP', () => {
       expect(stories[1]).toStrictEqual('video.mp4');
     });
 
-    test('should return a message stating no stories on the profile when given an empty list', async () => {
+    test('should return a message stating no stories on profile when given an empty list', async () => {
       const mockFetcher = async (_url) => {
-        return { json: async () => `{}` }
+        return { json: async () => JSON.parse('{"stories": []}') }
       }
 
       const instadp = new InstaDP(mockFetcher);
@@ -60,9 +59,9 @@ describe('InstaDP', () => {
       expect(stories).toStrictEqual('No stories posted on the profile');
     });
 
-    test('should return an error message when a fetch error occurs', async () => {
+    test('should return a server error message stating when fetch error occurs', async () => {
       const mockFetcher = async (_url) => {
-        return { json: async () => storiesErrorJson }
+        return { json: async () => `{}` }
       }
 
       const instadp = new InstaDP(mockFetcher);
