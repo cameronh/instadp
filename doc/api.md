@@ -23,8 +23,8 @@ A collection of helper functions used by InstaDP
 * [util](#module_util)
     * [~fetchHTML(fetcher, username, action_url)](#module_util..fetchHTML) ⇒ <code>Promise.&lt;string&gt;</code>
     * [~fetchJSON(fetcher, url)](#module_util..fetchJSON) ⇒ <code>Promise.&lt;any&gt;</code>
+    * [~fetchAccount(fetcher, username, action_url)](#module_util..fetchAccount) ⇒ <code>Promise.&lt;any&gt;</code>
     * [~fetchReelSource(fetcher, reels)](#module_util..fetchReelSource) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
-    * [~fetchStoryMediaFromHTML(html)](#module_util..fetchStoryMediaFromHTML) ⇒ <code>Array.&lt;string&gt;</code> \| <code>string</code>
     * [~fetchReelMediaFromHTML(fetcher, html)](#module_util..fetchReelMediaFromHTML) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code> \| <code>Promise.&lt;string&gt;</code>
     * [~fetchProfilePictureFromHTML(html)](#module_util..fetchProfilePictureFromHTML) ⇒ <code>string</code>
 
@@ -55,6 +55,18 @@ Fetches using the given fetcher and returns a JSON response
 | fetcher | <code>any</code> | Object to fetch data from an endpoint |
 | url | <code>string</code> | URL to fetch data from |
 
+<a name="module_util..fetchAccount"></a>
+
+### util~fetchAccount(fetcher, username, action_url) ⇒ <code>Promise.&lt;any&gt;</code>
+**Kind**: inner method of [<code>util</code>](#module_util)  
+**Returns**: <code>Promise.&lt;any&gt;</code> - JSON response  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fetcher | <code>any</code> | Object to fetch data from an endpoint |
+| username | <code>string</code> | User to fetch data from |
+| action_url | <code>string</code> | Additional route after username |
+
 <a name="module_util..fetchReelSource"></a>
 
 ### util~fetchReelSource(fetcher, reels) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
@@ -67,18 +79,6 @@ Returns the actual video source from a list of reels
 | --- | --- | --- |
 | fetcher | <code>any</code> | Object to fetch data from endpoint |
 | reels | <code>Array.&lt;string&gt;</code> | List of reel sources |
-
-<a name="module_util..fetchStoryMediaFromHTML"></a>
-
-### util~fetchStoryMediaFromHTML(html) ⇒ <code>Array.&lt;string&gt;</code> \| <code>string</code>
-Returns a list of story sources from HTML
-
-**Kind**: inner method of [<code>util</code>](#module_util)  
-**Returns**: <code>Array.&lt;string&gt;</code> \| <code>string</code> - List of story sources  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| html | <code>string</code> | Source HTML |
 
 <a name="module_util..fetchReelMediaFromHTML"></a>
 
@@ -168,3 +168,4 @@ Returns a list of reels for the provided username
 | Param | Type | Description |
 | --- | --- | --- |
 | username | <code>string</code> | User to fetch data from |
+

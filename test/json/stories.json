@@ -1,0 +1,13 @@
+{
+  "account": {},
+  "stories": [
+    {
+      "type": "img",
+      "src": "image.jpg"
+    },
+    {
+      "type": "vid",
+      "src": "video.mp4"
+    }
+  ]
+}

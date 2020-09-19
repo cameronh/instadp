@@ -1,7 +1,8 @@
 const InstaDP = require('../lib');
 const fs = require('fs');
 const path = require('path');
-const storiesHtml = fs.readFileSync(path.join(__dirname, 'html/stories.html'), 'utf8');
+const storiesJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/stories.json'), 'utf8'));
+const storiesErrorJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/stories_error.json'), 'utf8'));
 const profilePictureHtml = fs.readFileSync(path.join(__dirname, 'html/profile_picture.html'), 'utf8');
 const reelsHtml = fs.readFileSync(path.join(__dirname, 'html/reels.html'), 'utf8');
 const reelsJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'json/reels.json'), 'utf8'));
@@ -37,7 +38,7 @@ describe('InstaDP', () => {
   describe('getStories', () => {
     test('should return an array with 2 story items containing an image and video', async () => {
       const mockFetcher = async (_url) => {
-        return { text: async () => storiesHtml }
+        return { json: async () => storiesJson }
       }
       const instadp = new InstaDP(mockFetcher);
 
@@ -50,7 +51,7 @@ describe('InstaDP', () => {
 
     test('should return a message stating no stories on the profile when given an empty list', async () => {
       const mockFetcher = async (_url) => {
-        return { text: async () => `<ul class="stories-list"></ul>` }
+        return { json: async () => `{}` }
       }
 
       const instadp = new InstaDP(mockFetcher);
@@ -59,13 +60,15 @@ describe('InstaDP', () => {
       expect(stories).toStrictEqual('No stories posted on the profile');
     });
 
-    test('should throw an error for invalid html input', async () => {
-      const mockFetcherNull = async (_url) => {
-        return { text: async () => null }
+    test('should return an error message when a fetch error occurs', async () => {
+      const mockFetcher = async (_url) => {
+        return { json: async () => storiesErrorJson }
       }
-      const instadpFail = new InstaDP(mockFetcherNull);
 
-      await expect(instadpFail.getStories('foo')).rejects.toThrow(TypeError);
+      const instadp = new InstaDP(mockFetcher);
+      const stories = await instadp.getStories('foo');
+
+      expect(stories).toStrictEqual('Server error occurred. Please try again.');
     });
   });
 
